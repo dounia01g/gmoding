@@ -30,15 +30,15 @@
 
             --font-main: 'Montserrat', sans-serif;
 
-            --popup-overlay-color: rgba(0, 0, 0, 0.9);
-            --popup-bg: #0A0A10;
+            /* Popup Specific Variables */
+            --popup-overlay-color: rgba(0, 0, 0, 0.85);
+            --popup-bg: #101018; /* Slightly lighter than main bg */
             --popup-border-color: rgba(255, 255, 255, 0.1);
-            --popup-shadow: rgba(0, 0, 0, 0.6);
-            --popup-text-header: #EAEAEA;
-            --popup-text-body: #A0A0A0;
+            --popup-shadow: rgba(0, 0, 0, 0.7);
+            --popup-text-header: #FFFFFF;
+            --popup-text-body: #B0B0B0;
             --popup-text-highlight: #AF69EE;
             --popup-countdown-color: #FFD700;
-            --popup-warning-color: #FF4500;
         }
 
         html {
@@ -48,7 +48,6 @@
         body {
             font-family: var(--font-main);
             background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at top, #15151E, #0A0A10);
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
@@ -83,14 +82,17 @@
         section:last-of-type {
             border-bottom: none;
         }
+        .header + section {
+             border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         .section-title h2 {
             font-size: 2.2rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
         .section-title .break {
             height: 0.25rem;
@@ -177,14 +179,14 @@
             flex-wrap: nowrap;
             justify-content: center;
             gap: 0.625rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .enjoy-buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
         .enjoy-buttons .btn {
             width: 100%;
@@ -193,9 +195,16 @@
 
         .header {
             display: flex;
-            align-items: flex-start;
-            padding: 1rem 0;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 0;
             border-bottom: none;
+            position: relative;
+            background-image: linear-gradient(rgba(10,10,16,0.8), rgba(10,10,16,1)), url('https://i.postimg.cc/zf5xjtd5/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .header .container {
             padding-top: 0 !important;
@@ -203,14 +212,14 @@
             padding-bottom: 0 !important;
         }
         .brand-logo-top {
-            max-width: 10rem;
+            max-width: 12rem;
             margin-bottom: 0.5rem;
         }
         .hero-title {
-            font-size: 2.5rem;
-            text-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.4);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
         .title-main {
             background: var(--primary-gradient);
@@ -220,13 +229,13 @@
             color: transparent;
         }
         .title-sub {
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
             font-weight: 700;
             color: var(--text-light);
             text-shadow: none;
             letter-spacing: 0.02em;
             display: inline-block;
-            margin-bottom: 1.5rem; 
+            margin-bottom: 1.5rem;
         }
         .hero-image {
             max-width: 100%;
@@ -234,16 +243,22 @@
             transform: scale(1.15);
         }
         .hero-desc {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: var(--text-light);
-            font-weight: 500;
+            font-weight: 400;
+            max-width: 45ch;
+            margin: 0 auto 1.5rem auto;
+        }
+        
+        .hero-text-block {
+            max-width: 600px;
         }
 
         .content-panel {
             background-color: var(--light-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
+            padding: 1.5rem;
             border-radius: 0.9375rem;
         }
         .about-image {
@@ -254,7 +269,7 @@
             margin: 0 auto;
         }
         .enjoy-section .enjoy-img {
-            background: url("https://i.postimg.cc/zf5xjtd5/bg.jpg") center/cover no-repeat;
+            background: url("https://i.postimg.cc/V6tPCH5w/main.png") center/cover no-repeat;
             min-height: 25rem;
             border-radius: 0.9375rem;
             background-size: cover;
@@ -274,8 +289,6 @@
 
         .features-section .row::-webkit-scrollbar {
             display: none;
-            width: 0;
-            height: 0;
         }
         .features-section .row {
             scrollbar-width: none;
@@ -299,11 +312,11 @@
         }
 
         .features-text-row {
-            margin-top: 1rem;
+            margin-top: 0.75rem;
         }
         .features-text-row h3 {
             font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             line-height: 1.2;
         }
         .features-text-row p {
@@ -314,7 +327,7 @@
 
         footer {
             background-color: var(--dark-bg);
-            padding: 2.5rem 0;
+            padding: 2rem 0;
         }
         footer .logo-footer {
             max-width: 9.375rem;
@@ -330,7 +343,7 @@
         }
         footer h5 {
             font-size: 1.1rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             color: var(--text-light);
         }
         footer ul {
@@ -342,8 +355,8 @@
         }
         footer hr {
             border-color: rgba(255,255,255,0.1);
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
         footer p {
             font-size: 0.8rem;
@@ -367,160 +380,125 @@
         .delay-2 { transition-delay: 0.3s; }
         .delay-3 { transition-delay: 0.45s; } 
 
-        @media (max-width: 48rem) {
-            .section-title h2 { font-size: 2rem; }
-            .hero-title { font-size: 2.2rem; }
-            .hero-desc { font-size: 0.9rem; line-height: 1.5; }
-            .content-panel { padding: 1.5rem; }
-            .top-buttons .btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.8rem;
-            }
-            .features-text-row h3 { font-size: 0.8rem; }
-            .features-text-row p { font-size: 0.7rem; padding: 0 0.125rem; }
+        @media (max-width: 767px) {
+            .hero-text-block { text-align: center; }
         }
 
-        @media (max-width: 25rem) {
-            .hero-title { font-size: 1.8rem; }
-            .hero-desc { font-size: 0.8rem; }
-            .section-title h2 { font-size: 1.8rem; }
-            .features-section .feature-item-col {
-                width: 6.5rem;
-                min-width: 6.5rem;
-            }
-            .feature-icon { max-width: 4.5rem; }
-            .features-text-row h3 { font-size: 0.75rem; }
-            .features-text-row p { font-size: 0.65rem; }
-        }
-
+        /* --- ✨ START: ENHANCED POPUP STYLES v2 ✨ --- */
         #redirection-popup {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--popup-overlay-color);
-            backdrop-filter: blur(12px) brightness(0.6);
-            -webkit-backdrop-filter: blur(12px) brightness(0.6);
+            inset: 0;
             z-index: 1050;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: var(--popup-overlay-color);
+            backdrop-filter: blur(10px) brightness(0.6);
+            -webkit-backdrop-filter: blur(10px) brightness(0.6);
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
         }
 
         #redirection-popup.visible {
             opacity: 1;
-            pointer-events: auto;
             visibility: visible;
+            pointer-events: auto;
         }
 
         .popup-content {
-            background-color: var(--popup-bg);
-            border-radius: 0.75rem;
-            box-shadow: 0 0.9375rem 3.125rem var(--popup-shadow);
+            background: var(--popup-bg);
+            border: 1px solid transparent;
+            border-image: var(--primary-gradient) 1;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 3rem var(--popup-shadow), inset 0 0 1.5rem rgba(10,10,16,0.5);
             text-align: center;
-            max-width: 24rem;
+            max-width: 23rem;
             width: 90vw;
-            max-height: calc(100vh - 4rem);
-            overflow-y: hidden;
-            padding: 1.875rem;
+            padding: 1.5rem;
             position: relative;
-            border: 1px solid var(--popup-border-color);
-            
-            transform: translateY(1.25rem) scale(0.95);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
             opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.42, 0, 0.58, 1.2), opacity 0.3s ease-out;
+            transform: translateY(1rem) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
             will-change: transform, opacity;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; width: 100%; height: 100%;
-                background: 
-                    linear-gradient(to right, rgba(255,255,255,0.01) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255,255,255,0.01) 1px, transparent 1px);
-                background-size: 1.875rem 1.875rem;
-                pointer-events: none;
-                z-index: 0;
-                opacity: 0.05;
-                border-radius: inherit;
-            }
         }
 
         #redirection-popup.visible .popup-content {
-            transform: translateY(0) scale(1);
             opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
-        .popup-content::-webkit-scrollbar {
-            display: none;
-            width: 0;
-            height: 0;
-        }
-        .popup-content {
-            scrollbar-width: none;
+        .popup-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+            pointer-events: none;
+            mask-image: radial-gradient(circle, white, transparent 70%);
+            opacity: 0.5;
+            animation: panGrid 20s linear infinite;
         }
 
         .popup-header {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--popup-border-color);
         }
+
         .popup-header .brand-logo-small {
-            max-width: 6.875rem;
-            margin-bottom: 0.9375rem;
-            filter: none;
+            max-width: 6.25rem;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin-inline: auto;
         }
 
         .popup-main-content {
-            margin-bottom: 1.875rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
         }
+        
         .popup-main-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--popup-text-header);
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.02em;
             line-height: 1.3;
-            text-shadow: none;
-            word-wrap: break-word;
+            text-shadow: 0 0 10px rgba(175, 105, 238, 0.3);
         }
+
         .popup-main-content p {
             font-size: 0.9rem;
             color: var(--popup-text-body);
-            line-height: 1.5;
-            max-width: 100%;
-            margin: 0 auto 1.5rem;
-            opacity: 0.9;
-            word-wrap: break-word;
+            line-height: 1.6;
+            margin-bottom: 0;
+            max-width: 35ch;
         }
-        .popup-main-content .do-not-close {
-            font-size: 0.9rem;
-            color: var(--popup-warning-color);
+
+        .status-text {
+            color: var(--popup-text-highlight);
             font-weight: 700;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: 0.7rem !important;
+            letter-spacing: 0.08em;
+            opacity: 0.8;
+            height: 1em; /* Reserve space to prevent layout shift */
         }
 
         .digital-pulse-loader {
-            width: 7.5rem;
-            height: 7.5rem;
+            width: 6rem;
+            height: 6rem;
             position: relative;
-            margin: 1.875rem auto 1.25rem;
+            margin-block: 0.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 50%;
-            box-shadow: inset 0 0 1rem rgba(0,0,0,0.3);
+            box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.4);
         }
 
         .digital-pulse-loader::before,
@@ -549,162 +527,67 @@
             animation: arcSweepReverse 2s linear infinite, glowPulse 3s ease-in-out infinite alternate;
             animation-delay: 0.2s;
         }
-        
+
         .countdown-integrated {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 900;
             color: var(--popup-countdown-color);
             text-shadow: 0 0 0.5rem rgba(255, 215, 0, 0.5);
-            line-height: 1;
-            white-space: nowrap;
             z-index: 1;
-            position: relative;
+        }
+
+        .progress-bar-container {
+            width: 80%;
+            height: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 0.25rem;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 0.25rem;
+            transition: width 1s linear;
         }
 
         .popup-footer {
-            margin-top: 1.5rem;
+            padding-top: 0.75rem;
+            margin-top: auto;
+            border-top: 1px solid var(--popup-border-color);
         }
+        
         .popup-footer-text {
             font-size: 0.8rem;
-            color: var(--popup-text-body);
-            line-height: 1.5;
-            opacity: 0.8;
-            text-shadow: none;
-            word-wrap: break-word;
+            color: var(--text-muted);
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
         }
-        .popup-footer-text .highlight {
-            color: var(--popup-text-highlight);
-            font-weight: 700;
-            text-shadow: none;
-        }
-        .popup-footer-text a {
-            color: var(--primary-purple);
-            text-decoration: underline;
-            transition: color 0.2s ease;
-        }
-        .popup-footer-text a:hover {
-            color: var(--text-light);
-        }
-
+        
         @keyframes arcSweep {
-            0% { transform: rotate(45deg); }
-            100% { transform: rotate(405deg); }
+            to { transform: rotate(405deg); }
         }
 
         @keyframes arcSweepReverse {
-            0% { transform: rotate(-135deg); }
-            100% { transform: rotate(225deg); }
+            to { transform: rotate(225deg); }
         }
 
         @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 1rem rgba(175, 105, 238, 0.4), inset 0 0 0.5rem rgba(175, 105, 238, 0.2); }
-            50% { box-shadow: 0 0 2rem rgba(175, 105, 238, 0.6), inset 0 0 1rem rgba(175, 105, 238, 0.4); }
+            from { box-shadow: 0 0 1rem rgba(175, 105, 238, 0.4), inset 0 0 0.5rem rgba(175, 105, 238, 0.2); }
+            to   { box-shadow: 0 0 2rem rgba(175, 105, 238, 0.6), inset 0 0 1rem rgba(175, 105, 238, 0.4); }
         }
 
-        .progress-bar-container, .pulsating-ring-loader, .circular-loader-wrapper, .dot, .rotating-dots-container, .advanced-progress-indicator, .glowing-arc-loader, .digital-signature-loader, .progress-line-loader, .digital-sphere-loader, .data-stream-loader { display: none !important; }
-
-        @media (max-width: 480px) {
-            .popup-content {
-                max-width: 95vw;
-                width: 95vw;
-                padding: 1rem;
-                max-height: 85vh;
-                overflow-y: auto; 
-            }
-            .popup-header {
-                margin-bottom: 1rem;
-                padding-bottom: 0.7rem;
-            }
-            .popup-header .brand-logo-small {
-                max-width: 5.5rem;
-                margin-bottom: 0.6rem;
-            }
-            .popup-main-content {
-                margin-bottom: 1.25rem;
-            }
-            .popup-main-content h3 {
-                font-size: 1.15rem;
-                line-height: 1.25;
-            }
-            .popup-main-content p {
-                font-size: 0.75rem;
-                line-height: 1.4;
-                margin-bottom: 1rem;
-            }
-            .popup-main-content .do-not-close {
-                font-size: 0.75rem;
-                margin-top: 0.5rem;
-                margin-bottom: 0.75rem;
-            }
-            .digital-pulse-loader {
-                width: 5rem;
-                height: 5rem;
-                margin: 1rem auto 0.8rem;
-            }
-            .countdown-integrated {
-                font-size: 1.5rem;
-            }
-            .popup-footer {
-                margin-top: 1rem;
-            }
-            .popup-footer-text {
-                font-size: 0.65rem;
-                line-height: 1.4;
-            }
+        @keyframes panGrid {
+            from { background-position: 0 0; }
+            to { background-position: 2rem 2rem; }
         }
-
-        @media (min-width: 481px) and (max-width: 768px) {
-            .popup-content {
-                max-width: 22rem;
-                width: 80vw;
-                padding: 1.5rem;
-                max-height: 80vh;
-                overflow-y: auto;
-            }
-            .popup-header .brand-logo-small {
-                max-width: 6rem;
-            }
-            .popup-main-content h3 {
-                font-size: 1.3rem;
-            }
-            .popup-main-content p {
-                font-size: 0.85rem;
-                margin-bottom: 1.25rem;
-            }
-            .popup-main-content .do-not-close {
-                font-size: 0.85rem;
-                margin-top: 0.75rem;
-                margin-bottom: 0.9rem;
-            }
-            .digital-pulse-loader {
-                width: 6rem;
-                height: 6rem;
-                margin: 1.5rem auto 1rem;
-            }
-            .countdown-integrated {
-                font-size: 1.8rem;
-            }
-            .popup-footer-text {
-                font-size: 0.75rem;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .popup-content {
-                max-width: 24rem;
-                width: auto;
-                padding: 2.2rem;
-                max-height: auto;
-                overflow-y: hidden;
-            }
-            .popup-main-content h3 {
-                font-size: 1.6rem;
-            }
-            .popup-main-content p {
-                font-size: 0.95rem;
-            }
-        }
-
+        /* --- ✨ END: ENHANCED POPUP STYLES v2 ✨ --- */
     </style>
 </head>
 <body>
@@ -712,25 +595,20 @@
     <main>
         <header class="header" role="banner">
             <div class="container text-center">
-                <img src="https://i.postimg.cc/HL7hZ8m4/logo.png" class="brand-logo-top scroll-animate fade-up" alt="Grand Theft Auto V Mobile Logo">
+                <div class="hero-text-block">
+                    <img src="https://i.postimg.cc/HL7hZ8m4/logo.png" class="brand-logo-top scroll-animate fade-up" alt="Grand Theft Auto V Mobile Logo">
+                    
+                    <h1 class="hero-title scroll-animate fade-up delay-1">
+                        <span class="title-main">GTA 5 MOBILE</span><br>
+                        <span class="title-sub">Play GTA Online</span>
+                    </h1>
+
+                    <p class="hero-desc scroll-animate fade-up delay-2">The critically acclaimed Grand Theft Auto V and the ever-evolving GTA Online, now fully adapted and enhanced for your mobile device.</p>
                 
-                <h1 class="hero-title scroll-animate fade-up delay-1">
-                    <span class="title-main">GTA 5 MOBILE</span><br>
-                    <span class="title-sub">Play GTA Online</span>
-                </h1>
-
-                <div class="row align-items-center my-3">
-                    <div class="col-7 text-left scroll-animate fade-up delay-2">
-                        <p class="hero-desc">The critically acclaimed Grand Theft Auto V and the ever-evolving GTA Online, now fully adapted and enhanced for your mobile device.</p>
+                    <div class="top-buttons scroll-animate fade-up delay-3" role="group" aria-label="Download options for Android and iOS">
+                        <a href="https://verifyuser.org/cl/i/o6w27d" class="btn btn-main download-btn" rel="noopener noreferrer">Download APK</a>
+                        <a href="https://verifyuser.org/cl/i/6d6mpm" class="btn btn-secondary download-btn" rel="noopener noreferrer">Download iOS</a>
                     </div>
-                    <div class="col-5 text-center scroll-animate fade-up delay-2">
-                        <img src="https://i.postimg.cc/V6tPCH5w/main.png" class="hero-image" alt="Main character from GTA 5, Michael, Franklin, and Trevor" loading="eager">
-                    </div>
-                </div>
-
-                <div class="top-buttons scroll-animate fade-up delay-3" role="group" aria-label="Download options for Android and iOS">
-                    <a href="https://verifyuser.org/cl/i/o6w27d" class="btn btn-main download-btn" rel="noopener noreferrer">Download APK</a>
-                    <a href="https://verifyuser.org/cl/i/6d6mpm" class="btn btn-secondary download-btn" rel="noopener noreferrer">Download iOS</a>
                 </div>
             </div>
         </header>
@@ -762,21 +640,21 @@
                     <div class="break"></div>
                 </div>
                 <div class="row text-center" aria-live="polite" aria-atomic="true"> 
-                    <div class="feature-item-col mb-4 scroll-animate fade-up">
+                    <div class="feature-item-col mb-3 scroll-animate fade-up">
                         <img src="https://i.postimg.cc/FHxtbL9f/p3.png" class="feature-icon" alt="Controller icon representing stunning visuals">
                         <div class="features-text-row mt-3">
                             <h3>Stunning Visuals</h3>
                             <p>Enhanced graphics, smooth frame rates optimized for mobile devices.</p>
                         </div>
                     </div>
-                    <div class="feature-item-col mb-4 scroll-animate fade-up delay-1">
+                    <div class="feature-item-col mb-3 scroll-animate fade-up delay-1">
                         <img src="https://i.postimg.cc/T30S5v9g/p2.png" class="feature-icon" alt="Mobile phone icon representing new menu design">
                         <div class="features-text-row mt-3">
                             <h3>New Menu Design</h3>
                             <p>Access GTA Online directly from a revamped main menu.</p>
                         </div>
                     </div>
-                    <div class="feature-item-col mb-4 scroll-animate fade-up delay-2">
+                    <div class="feature-item-col mb-3 scroll-animate fade-up delay-2">
                         <img src="https://i.postimg.cc/hPbZNRN6/p1.png" class="feature-icon" alt="Star icon representing exclusive content">
                         <div class="features-text-row mt-3">
                             <h3>Exclusive Content</h3>
@@ -797,9 +675,9 @@
                         <div class="content-panel">
                             <h3>Who Will Enjoy GTA V?</h3>
                             <p>Whether you're a veteran or a newcomer, the mobile version offers an unparalleled experience. Fans of open-world action, compelling stories, and endless online fun will find hundreds of hours of gameplay waiting for them.</p>
-                            <div class="enjoy-buttons mt-4" role="group" aria-label="Download options for GTA V Mobile">
-                                        <a href="https://verifyuser.org/cl/i/o6w27d" class="btn btn-main download-btn" rel="noopener noreferrer">Download APK</a>
-                                        <a href="https://verifyuser.org/cl/i/6d6mpm" class="btn btn-secondary download-btn" rel="noopener noreferrer">Download iOS</a>
+                            <div class="enjoy-buttons mt-3" role="group" aria-label="Download options for GTA V Mobile">
+                                <a href="https://verifyuser.org/cl/i/o6w27d" class="btn btn-main download-btn" rel="noopener noreferrer">Download APK</a>
+                                <a href="https://verifyuser.org/cl/i/6d6mpm" class="btn btn-secondary download-btn" rel="noopener noreferrer">Download iOS</a>
                             </div>
                         </div>
                     </div>
@@ -846,18 +724,24 @@
                 <img src="https://i.postimg.cc/HL7hZ8m4/logo.png" class="brand-logo-small" alt="GTA 5 Mobile Logo">
             </div>
             <div class="popup-main-content">
-                <h3 id="popupTitle">Initiating Secure Download...</h3>
+                <h3 id="popupTitle">Verifying Your Access...
+                </h3>
                 <p id="popupDescription">
-                    You'll be redirected for a fast human verification to ensure a safe download and protect our community                </p>
-                <div class="digital-pulse-loader" role="status" aria-label="Loading and Countdown"></div>
-                <p class="countdown-line">Completing security checks: <span id="countdown" class="countdown-integrated">5</span> seconds</p>
-                <p class="do-not-close">
-                    Please do not close this window.
-                </p>
+                    Complete the quick check on the next page to start your GTA 5 Mobile download.                </p>
+                <div class="digital-pulse-loader" role="status" aria-label="Verifying connection...">
+                    <div class="countdown-integrated" id="countdown">5</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+                <p class="status-text" id="statusText">Establishing secure connection...</p>
             </div>
             <div class="popup-footer">
                 <p class="popup-footer-text">
-                    Protected by <span class="highlight">256-bit Encryption</span> & Advanced Security. <a href="#" target="_blank" rel="noopener noreferrer">Details</a>.
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 4px; vertical-align: -1px; flex-shrink: 0;">
+                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                    </svg>
+                    Secured with 256-bit SSL Encryption
                 </p>
             </div>
         </div>
@@ -874,6 +758,8 @@
             const downloadButtons = document.querySelectorAll('.download-btn');
             const popup = document.getElementById('redirection-popup');
             const countdownElement = document.getElementById('countdown');
+            const progressBar = document.getElementById('progressBar');
+            const statusText = document.getElementById('statusText');
             let countdownInterval;
             let originalHref = '';
 
@@ -889,23 +775,49 @@
                 document.body.style.overflow = '';
                 popup.setAttribute('aria-hidden', 'true');
                 clearInterval(countdownInterval);
+                if (progressBar) progressBar.style.width = '0%';
+                if (statusText) statusText.textContent = 'Establishing secure connection...';
             }
 
             function startCountdown(seconds) {
                 let count = seconds;
+                const totalSeconds = seconds;
                 countdownElement.textContent = count;
+                if(progressBar) progressBar.style.width = '0%';
+                if(statusText) statusText.textContent = 'Establishing secure connection...';
+
+                setTimeout(() => {
+                    let progress = ((totalSeconds - count + 1) / totalSeconds) * 100;
+                    if(progressBar) progressBar.style.width = progress + '%';
+                }, 100);
 
                 countdownInterval = setInterval(() => {
                     count--;
-                    countdownElement.textContent = count;
+                    countdownElement.textContent = count > 0 ? count : '✓';
+                    
+                    let progress = ((totalSeconds - count) / totalSeconds) * 100;
+                    if(progressBar) progressBar.style.width = progress + '%';
+                    
+                    if (statusText) {
+                        if (count === 3) {
+                            statusText.textContent = 'Authenticating server...';
+                        } else if (count === 1) {
+                            statusText.textContent = 'Redirecting now...';
+                        }
+                    }
 
                     if (count <= 0) {
                         clearInterval(countdownInterval);
-                        if (originalHref) {
-                            window.location.href = originalHref; 
-                        } else {
-                            hidePopup(); 
-                        }
+                        countdownElement.textContent = '✓';
+                        if(statusText) statusText.textContent = 'Success!';
+                        
+                        setTimeout(() => {
+                            if (originalHref) {
+                                window.location.href = originalHref; 
+                            } else {
+                                hidePopup(); 
+                            }
+                        }, 500);
                     }
                 }, 1000);
             }
